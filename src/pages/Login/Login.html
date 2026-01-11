@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - NIMA Juice</title>
-  <link rel="stylesheet" href="../../assets/styles/style.css" />
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
-  <div class="login-container">
-    <h1>Login NIMA Juice</h1>
+  <header class="top-bar">
+    <div class="left">NIMA JUICE</div>
+    <div class="right"><button>Pelanggan</button></div>
+  </header>
 
-    <input id="username" placeholder="Username" />
-    <input id="password" placeholder="Password" type="password" />
+  <div class="content">
+    <img id="profileImage" src="../../assets/images/default-avatar.png" alt="Foto Profil" width="120">
+    <input type="file" id="photoInput" accept="image/*">
+    <button onclick="updatePhoto()">Ubah Foto</button>
 
-    <button type="button" onclick="login()">Login</button>
-
-    <div class="small">
-      Belum punya akun? <a href="../Login/Signup.html">Daftar</a>
-    </div>
-
-    <pre id="result"></pre>
+    <input id="name" placeholder="Nama">
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="saveProfile()">Simpan</button>
   </div>
 
-  <script type="module">
-    import { loginUser } from '../../services/api.js';
+  <nav class="bottom-nav">
+    <button onclick="window.location.href='../Home/Home.html'">Home</button>
+    <button onclick="window.location.href='../Profile/Profile.html'">Profile</button>
+    <button onclick="window.location.href='../Login/Signup.html'">Daftar</button>
+    <button onclick="logout()">Keluar</button>
+  </nav>
 
-    async function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      const data = await loginUser(username, password);
-      console.log("Login response:", data);
-
-      document.getElementById("result").innerText = data.message;
-
-      if (data.message === "LOGIN BERHASIL") {
-        window.location.href = "../Home/Home.html";
+  <script>
+    function updatePhoto() {
+      const file = document.getElementById("photoInput").files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = e => document.getElementById("profileImage").src = e.target.result;
+        reader.readAsDataURL(file);
       }
     }
-
-    window.login = login;
+    function saveProfile() {
+      alert("Profile updated!");
+    }
+    function logout() {
+      window.location.href="../Login/Login.html";
+    }
   </script>
 </body>
 </html>
-

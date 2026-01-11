@@ -2,48 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Profile</title>
+  <title>Login</title>
   <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
-  <header class="top-bar">
-    <div class="left">NIMA JUICE</div>
-    <div class="right"><button>Pelanggan</button></div>
-  </header>
+  <div class="app">
+    <header class="app-header">
+      <span>Login</span>
+    </header>
 
-  <div class="content">
-    <img id="profileImage" src="../../assets/images/default-avatar.png" alt="Foto Profil" width="120">
-    <input type="file" id="photoInput" accept="image/*">
-    <button onclick="updatePhoto()">Ubah Foto</button>
+    <main class="app-body">
+      <section class="section">
+        <div class="section-body">
+          <input id="username" placeholder="Username">
+          <input id="password" type="password" placeholder="Password">
+          <button onclick="login()">Login</button>
+          <pre id="result"></pre>
+        </div>
+      </section>
+    </main>
 
-    <input id="name" placeholder="Nama">
-    <input id="username" placeholder="Username">
-    <input id="password" type="password" placeholder="Password">
-    <button onclick="saveProfile()">Simpan</button>
+    <footer class="app-footer">
+      <nav class="menu-bar">
+        <a href="../Home/Home.html" class="menu-bar-item">Home</a>
+        <a href="../Profile/Profile.html" class="menu-bar-item">Profile</a>
+        <a href="../Login/Login.html" class="menu-bar-item menu-bar-item--active">Login</a>
+        <a href="../Signup/Signup.html" class="menu-bar-item">Daftar</a>
+      </nav>
+    </footer>
   </div>
 
-  <nav class="bottom-nav">
-    <button onclick="window.location.href='../Home/Home.html'">Home</button>
-    <button onclick="window.location.href='../Profile/Profile.html'">Profile</button>
-    <button onclick="window.location.href='../Login/Signup.html'">Daftar</button>
-    <button onclick="logout()">Keluar</button>
-  </nav>
-
-  <script>
-    function updatePhoto() {
-      const file = document.getElementById("photoInput").files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = e => document.getElementById("profileImage").src = e.target.result;
-        reader.readAsDataURL(file);
+  <script type="module">
+    import { loginUser } from '../../services/api.js';
+    async function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const data = await loginUser(username, password);
+      document.getElementById("result").innerText = data.message;
+      if (data.message === "LOGIN BERHASIL") {
+        window.location.href="../Home/Home.html";
       }
     }
-    function saveProfile() {
-      alert("Profile updated!");
-    }
-    function logout() {
-      window.location.href="../Login/Login.html";
-    }
+    window.login = login;
   </script>
 </body>
 </html>

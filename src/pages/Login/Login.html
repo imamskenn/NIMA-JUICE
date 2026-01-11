@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - NIMA Juice</title>
-<link rel="stylesheet" href="../../src/styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - NIMA Juice</title>
+  <link rel="stylesheet" href="../../src/styles/style.css" />
 </head>
 <body>
-<div class="login-container">
-  <h1>Login NIMA Juice</h1>
-  <input id="username" placeholder="Username">
-  <input id="password" placeholder="Password" type="password">
-  <button onclick="login()">Login</button>
- <div class="small">
-  Belum punya akun? <a href="Signup.html">Daftar</a></div>
-  <pre id="result"></pre>
-</div>
+  <div class="login-container">
+    <h1>Login NIMA Juice</h1>
 
-<script type="module">
-import { loginUser } from '../../services/api.js';
+    <input id="username" placeholder="Username" />
+    <input id="password" placeholder="Password" type="password" />
 
-async function login() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const text = await loginUser(username, password);
-  document.getElementById("result").innerText = text;
+    <button onclick="login()">Login</button>
 
-  if(text.startsWith("LOGIN BERHASIL")) {
-    // redirect ke home
-    window.location.href = "/NIMA-JUICE/src/Home/Home.html";
-  }
-}
-</script>
+    <div class="small">
+      Belum punya akun? <a href="Signup.html">Daftar</a>
+    </div>
+
+    <pre id="result"></pre>
+  </div>
+
+  <script type="module">
+    import { loginUser } from '../../services/api.js';
+
+    async function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const text = await loginUser(username, password);
+
+      document.getElementById("result").innerText = text;
+
+      if (text.startsWith("LOGIN BERHASIL")) {
+        // redirect ke home
+        window.location.href = "../home/Home.html";
+      }
+    }
+
+    // expose ke global agar onclick bisa jalan
+    window.login = login;
+  </script>
 </body>
 </html>
-
-
-
-
-
-

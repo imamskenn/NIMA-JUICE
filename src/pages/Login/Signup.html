@@ -25,7 +25,7 @@
   </div>
 
   <script type="module">
-    import { signupUser } from '../../services/api.js';
+    import { registerUser } from '../../services/api.js';
 
     async function signup() {
       const username = document.getElementById("username").value;
@@ -38,12 +38,28 @@
         return;
       }
 
-      const text = await signupUser(username, email, password);
-      document.getElementById("result").innerText = text;
+      try {
+        console.log("Signup clicked:", username, email, password);
 
-      if (text.startsWith("SIGNUP BERHASIL")) {
-        // redirect ke login
-        window.location.href = "../Login/Login.html";
+        // panggil API register (role default "user")
+        const res = await fetch("https://backend.nimajuice.workers.dev/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password, role: "user" })
+        });
+
+        const text = await res.text();
+        console.log("Status:", res.status);
+        console.log("Response:", text);
+
+        document.getElementById("result").innerText = text;
+
+        if (text.startsWith("SIGNUP BERHASIL")) {
+          window.location.href = "../Login/Login.html";
+        }
+      } catch (err) {
+        console.error("Signup error:", err);
+        document.getElementById("result").innerText = "Error: " + err.message;
       }
     }
 

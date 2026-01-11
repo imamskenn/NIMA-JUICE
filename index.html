@@ -10,7 +10,7 @@
 
 <script>
 async function kirim(){
-  const r = await fetch("ISI_URL_BACKEND_NANTI");
+  const r = await fetch("https://nimajuice.workers.dev/");
   document.getElementById("hasil").innerText = await r.text();
 }
 </script>

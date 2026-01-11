@@ -4,18 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signup - NIMA Juice</title>
-  <link rel="stylesheet" href="../../src/styles/style.css" />
+  <link rel="stylesheet" href="../../assets/styles/style.css" />
 </head>
 <body>
   <div class="signup-container">
     <h1>Daftar NIMA Juice</h1>
 
     <input id="username" placeholder="Username" />
-    <input id="email" placeholder="Email" type="email" />
     <input id="password" placeholder="Password" type="password" />
     <input id="confirmPassword" placeholder="Konfirmasi Password" type="password" />
 
-    <button onclick="signup()">Daftar</button>
+    <button type="button" onclick="signup()">Daftar</button>
 
     <div class="small">
       Sudah punya akun? <a href="../Login/Login.html">Login</a>
@@ -29,7 +28,6 @@
 
     async function signup() {
       const username = document.getElementById("username").value;
-      const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       const confirmPassword = document.getElementById("confirmPassword").value;
 
@@ -38,32 +36,16 @@
         return;
       }
 
-      try {
-        console.log("Signup clicked:", username, email, password);
+      const data = await registerUser(username, password, "user");
+      console.log("Signup response:", data);
 
-        // panggil API register (role default "user")
-        const res = await fetch("https://backend.nimajuice.workers.dev/register", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password, role: "user" })
-        });
+      document.getElementById("result").innerText = data.message;
 
-        const text = await res.text();
-        console.log("Status:", res.status);
-        console.log("Response:", text);
-
-        document.getElementById("result").innerText = text;
-
-        if (text.startsWith("SIGNUP BERHASIL")) {
-          window.location.href = "../Login/Login.html";
-        }
-      } catch (err) {
-        console.error("Signup error:", err);
-        document.getElementById("result").innerText = "Error: " + err.message;
+      if (data.message === "USER TERDAFTAR") {
+        window.location.href = "../Login/Login.html";
       }
     }
 
-    // expose ke global agar onclick bisa jalan
     window.signup = signup;
   </script>
 </body>

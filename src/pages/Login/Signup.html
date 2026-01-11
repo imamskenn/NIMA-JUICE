@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Signup - NIMA Juice</title>
-  <link rel="stylesheet" href="../../src/styles/style.css">
+  <link rel="stylesheet" href="../../src/styles/style.css" />
 </head>
 <body>
   <div class="signup-container">
     <h1>Daftar NIMA Juice</h1>
-    <input id="username" placeholder="Username">
-    <input id="email" placeholder="Email" type="email">
-    <input id="password" placeholder="Password" type="password">
-    <input id="confirmPassword" placeholder="Konfirmasi Password" type="password">
+
+    <input id="username" placeholder="Username" />
+    <input id="email" placeholder="Email" type="email" />
+    <input id="password" placeholder="Password" type="password" />
+    <input id="confirmPassword" placeholder="Konfirmasi Password" type="password" />
+
     <button onclick="signup()">Daftar</button>
-    <div class="small">Sudah punya akun? <a href="/NIMA-JUICE/src/pages/Login/Login.html">Login</a></div>
+
+    <div class="small">
+      Sudah punya akun? <a href="../Login/Login.html">Login</a>
+    </div>
+
     <pre id="result"></pre>
   </div>
 
@@ -27,7 +33,7 @@
       const password = document.getElementById("password").value;
       const confirmPassword = document.getElementById("confirmPassword").value;
 
-      if(password !== confirmPassword) {
+      if (password !== confirmPassword) {
         document.getElementById("result").innerText = "Password tidak sama!";
         return;
       }
@@ -35,11 +41,14 @@
       const text = await signupUser(username, email, password);
       document.getElementById("result").innerText = text;
 
-      if(text.startsWith("SIGNUP BERHASIL")) {
+      if (text.startsWith("SIGNUP BERHASIL")) {
         // redirect ke login
-        window.location.href = "../login/Login.html";
+        window.location.href = "../Login/Login.html";
       }
     }
+
+    // expose ke global agar onclick bisa jalan
+    window.signup = signup;
   </script>
 </body>
 </html>

@@ -1,86 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile - NIMA Juice</title>
-  <link rel="stylesheet" href="../../assets/styles/style.css" />
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
-  <div class="profile-container">
-    <h1>Profile</h1>
+  <header class="top-bar">
+    <div class="left">NIMA JUICE</div>
+    <div class="right"><button>Pelanggan</button></div>
+  </header>
 
-    <!-- Foto Profil -->
-    <div class="profile-photo">
-      <img id="profileImage" src="../../assets/images/default-avatar.png" alt="Foto Profil" width="120" height="120" />
-      <input type="file" id="photoInput" accept="image/*" />
-      <button type="button" onclick="updatePhoto()">Ubah Foto</button>
-    </div>
+  <div class="content">
+    <img id="profileImage" src="../../assets/images/default-avatar.png" alt="Foto Profil" width="120">
+    <input type="file" id="photoInput" accept="image/*">
+    <button onclick="updatePhoto()">Ubah Foto</button>
 
-    <!-- Nama -->
-    <div class="profile-field">
-      <label for="name">Nama:</label>
-      <input id="name" type="text" placeholder="Nama lengkap" />
-    </div>
-
-    <!-- Username -->
-    <div class="profile-field">
-      <label for="username">Username:</label>
-      <input id="username" type="text" placeholder="Username" />
-    </div>
-
-    <!-- Password -->
-    <div class="profile-field">
-      <label for="password">Password:</label>
-      <input id="password" type="password" placeholder="Password baru" />
-    </div>
-
-    <!-- Tombol Simpan -->
-    <button type="button" onclick="saveProfile()">Simpan Perubahan</button>
-
-    <!-- Tombol Keluar -->
-    <button type="button" onclick="logout()" class="logout-btn">Keluar</button>
-
-    <pre id="result"></pre>
+    <input id="name" placeholder="Nama">
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button onclick="saveProfile()">Simpan</button>
   </div>
 
-  <script type="module">
-    // import API kalau nanti ada endpoint update profile
-    // import { updateProfile } from '../../services/api.js';
+  <nav class="bottom-nav">
+    <button onclick="window.location.href='../Home/Home.html'">Home</button>
+    <button onclick="window.location.href='../Profile/Profile.html'">Profile</button>
+    <button onclick="window.location.href='../Signup/Signup.html'">Daftar</button>
+    <button onclick="logout()">Keluar</button>
+  </nav>
 
+  <script>
     function updatePhoto() {
-      const fileInput = document.getElementById("photoInput");
-      const file = fileInput.files[0];
+      const file = document.getElementById("photoInput").files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById("profileImage").src = e.target.result;
-        };
+        reader.onload = e => document.getElementById("profileImage").src = e.target.result;
         reader.readAsDataURL(file);
       }
     }
-
-    async function saveProfile() {
-      const name = document.getElementById("name").value;
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-
-      // sementara hanya tampilkan di layar
-      // nanti bisa dihubungkan ke backend update profile
-      const data = { name, username, password };
-      console.log("Profile updated:", data);
-      document.getElementById("result").innerText = "Perubahan tersimpan!";
+    function saveProfile() {
+      alert("Profile updated!");
     }
-
     function logout() {
-      // bersihkan session/token kalau ada
-      console.log("User logged out");
-      window.location.href = "../Login/Login.html";
+      window.location.href="../Login/Login.html";
     }
-
-    window.updatePhoto = updatePhoto;
-    window.saveProfile = saveProfile;
-    window.logout = logout;
   </script>
 </body>
 </html>

@@ -1,66 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>NIMA Juice - Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIMA Juice</title>
+<style>
+  body {
+    margin:0;
+    padding:0;
+    font-family: Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f4f4f4;
+  }
+  .container {
+    text-align:center;
+  }
+  h1 {
+    font-size:28px;
+    color:#333;
+    margin-bottom:20px;
+  }
+  a.button {
+    display:inline-block;
+    padding:12px 25px;
+    background:#ff6f61;
+    color:white;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:16px;
+    transition:0.3s;
+  }
+  a.button:hover {
+    background:#ff3b2f;
+  }
+</style>
 </head>
 <body>
-  <h1>NIMA Juice</h1>
 
-  <h2>Registrasi User</h2>
-  <input id="username" placeholder="Username">
-  <input id="password" placeholder="Password" type="password">
-  <select id="role">
-    <option value="penjual">Penjual</option>
-    <option value="pembeli">Pembeli</option>
-  </select>
-  <button onclick="register()">Register</button>
-  <pre id="regResult"></pre>
+<div class="container">
+  <h1>Selamat Datang di NIMA Juice</h1>
+  <a href="pages/login/Login.html" class="button">Masuk / Login</a>
+</div>
 
-  <h2>Tambah Produk (Penjual)</h2>
-  <input id="prodName" placeholder="Nama Produk">
-  <input id="prodStock" placeholder="Stock" type="number">
-  <input id="sellerId" placeholder="ID Penjual">
-  <button onclick="addProduct()">Tambah Produk</button>
-  <pre id="addResult"></pre>
-
-  <h2>List Produk Ready (Pembeli)</h2>
-  <button onclick="listProducts()">Lihat Produk</button>
-  <pre id="listResult"></pre>
-
-<script>
-const baseUrl = "https://backend.nimajuice.workers.dev"; // URL Worker
-
-async function register() {
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  const role = document.getElementById("role").value;
-
-  const r = await fetch(baseUrl + "/register", {
-    method:"POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({username, password, role})
-  });
-  document.getElementById("regResult").innerText = await r.text();
-}
-
-async function addProduct() {
-  const name = document.getElementById("prodName").value;
-  const stock = parseInt(document.getElementById("prodStock").value);
-  const seller_id = parseInt(document.getElementById("sellerId").value);
-
-  const r = await fetch(baseUrl + "/add-product", {
-    method:"POST",
-    headers: {"Content-Type":"application/json"},
-    body: JSON.stringify({name, stock, seller_id})
-  });
-  document.getElementById("addResult").innerText = await r.text();
-}
-
-async function listProducts() {
-  const r = await fetch(baseUrl + "/list-products");
-  const data = await r.json();
-  document.getElementById("listResult").innerText = JSON.stringify(data, null, 2);
-}
-</script>
 </body>
 </html>

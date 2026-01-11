@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home - NIMA Juice</title>
-  <link rel="stylesheet" href="../../src/styles/style.css" />
+  <link rel="stylesheet" href="../../assets/styles/style.css" />
 </head>
 <body>
   <h1>Home</h1>
 
-  <button onclick="loadProducts()">Lihat Produk Ready</button>
+  <button type="button" onclick="loadProducts()">Lihat Produk Ready</button>
   <pre id="products"></pre>
 
   <script type="module">
@@ -18,13 +18,13 @@
     async function loadProducts() {
       try {
         const data = await listProducts();
+        console.log("Products:", data);
         document.getElementById("products").innerText = JSON.stringify(data, null, 2);
       } catch (err) {
         document.getElementById("products").innerText = "Error: " + err.message;
       }
     }
 
-    // expose ke global agar onclick bisa jalan
     window.loadProducts = loadProducts;
   </script>
 </body>

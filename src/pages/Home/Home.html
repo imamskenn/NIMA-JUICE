@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home - NIMA Juice</title>
-  <link rel="stylesheet" href="../../assets/styles/style.css" />
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="../../assets/styles/style.css">
 </head>
 <body>
-  <h1>Home</h1>
+  <header class="top-bar">
+    <div class="left">NIMA JUICE</div>
+    <div class="right"><button>Pelanggan</button></div>
+  </header>
 
-  <button type="button" onclick="loadProducts()">Lihat Produk Ready</button>
-  <pre id="products"></pre>
+  <div class="top-card" id="topCard">
+    <h2>Promo Hari Ini</h2>
+    <p>Diskon 20% untuk semua produk!</p>
+  </div>
 
-  <script type="module">
-    import { listProducts } from '../../services/api.js';
+  <div class="carousel">
+    <div class="slides">
+      <img src="../../assets/images/img1.jpg" alt="Slide 1">
+      <img src="../../assets/images/img2.jpg" alt="Slide 2">
+      <img src="../../assets/images/img3.jpg" alt="Slide 3">
+    </div>
+  </div>
 
-    async function loadProducts() {
-      try {
-        const data = await listProducts();
-        console.log("Products:", data);
-        document.getElementById("products").innerText = JSON.stringify(data, null, 2);
-      } catch (err) {
-        document.getElementById("products").innerText = "Error: " + err.message;
+  <nav class="bottom-nav">
+    <button onclick="window.location.href='../Home/Home.html'">Home</button>
+    <button onclick="window.location.href='../Profile/Profile.html'">Profile</button>
+    <button onclick="window.location.href='../Login/Signup.html'">Daftar</button>
+    <button onclick="window.location.href='../Login/Login.html'">Login</button>
+  </nav>
+
+  <script>
+    window.addEventListener("scroll", () => {
+      const card = document.getElementById("topCard");
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
+        card.style.transform = "scale(0.8)";
+        card.style.opacity = "0.5";
       }
-    }
-
-    window.loadProducts = loadProducts;
+      if (scrollY > 150) {
+        card.style.opacity = "0";
+        card.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>

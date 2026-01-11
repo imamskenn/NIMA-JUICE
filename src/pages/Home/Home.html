@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - NIMA Juice</title>
-<link rel="stylesheet" href="../../src/styles/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home - NIMA Juice</title>
+  <link rel="stylesheet" href="../../src/styles/style.css" />
 </head>
 <body>
-<h1>Home</h1>
-<button onclick="loadProducts()">Lihat Produk Ready</button>
-<pre id="products"></pre>
+  <h1>Home</h1>
 
-<script type="module">
-import { listProducts } from '../../services/api.js';
+  <button onclick="loadProducts()">Lihat Produk Ready</button>
+  <pre id="products"></pre>
 
-async function loadProducts() {
-  const data = await listProducts();
-  document.getElementById("products").innerText = JSON.stringify(data, null, 2);
-}
-</script>
+  <script type="module">
+    import { listProducts } from '../../services/api.js';
+
+    async function loadProducts() {
+      try {
+        const data = await listProducts();
+        document.getElementById("products").innerText = JSON.stringify(data, null, 2);
+      } catch (err) {
+        document.getElementById("products").innerText = "Error: " + err.message;
+      }
+    }
+
+    // expose ke global agar onclick bisa jalan
+    window.loadProducts = loadProducts;
+  </script>
 </body>
 </html>

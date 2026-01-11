@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App Pertama</title>
+</head>
+<body>
+  <h1>Halo Dunia</h1>
+  <button onclick="kirim()">Kirim ke Server</button>
+  <pre id="hasil"></pre>
+
+<script>
+async function kirim(){
+  const r = await fetch("ISI_URL_BACKEND_NANTI");
+  document.getElementById("hasil").innerText = await r.text();
+}
+</script>
+</body>
+</html>

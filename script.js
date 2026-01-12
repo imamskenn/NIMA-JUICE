@@ -3,16 +3,15 @@ const WA_NUMBER = '6283829560114';
 
 // Best Seller Cards
 const bestSellers = [
-  {name:"Jus Alpukat",desc:"Hayang Deui!!",img:"https://img.freepik.com/free-photo/refreshing-avocado-smoothie_23-2151954260.jpg?t=st=1768214267~exp=1768217867~hmac=58296fb16765b0cd3d7190e1c86952081fc763d9929800126b173c17faa94067"},
-  {name:"Cappucino Cincau",desc:"Madep Pokonamah!!",img:"https://img.freepik.com/free-photo/iced-coffee-latte_23-2151961339.jpg?t=st=1768220439~exp=1768224039~hmac=523efc88bf5db3de9d17abb5ec18eeaf46cc25fb0e3615b8c98525b7b81e1be2"},
-  {name:"Jus Mangga",desc:"100% Mangga Aseli!!",img:"https://img.freepik.com/free-photo/mango-juice-glass-blue-surface_1150-41955.jpg?t=st=1768226534~exp=1768230134~hmac=ad658fe9d8f98a8816a3490dc3c5a74162ceee01e78ff6fabc5cc4fc3ee8a5f2"}
+  {name:"Jus Alpukat",desc:"Hayang Deui!!",img:"https://img.freepik.com/free-photo/refreshing-avocado-smoothie_23-2151954260.jpg"},
+  {name:"Cappucino Cincau",desc:"Madep Pokonamah!!",img:"https://img.freepik.com/free-photo/iced-coffee-latte_23-2151961339.jpg"},
+  {name:"Jus Mangga",desc:"100% Mangga Aseli!!",img:"https://img.freepik.com/free-photo/mango-juice-glass-blue-surface_1150-41955.jpg"}
 ];
 
-// JS
+// Best Seller Carousel
 const cardsContainer = document.getElementById('best-seller-cards');
 const cards = [];
 
-// Buat card
 bestSellers.forEach(item => {
   const div = document.createElement('div');
   div.className = "carousel-card flex flex-col gap-2 rounded-xl bg-white dark:bg-[#2d2c18] p-3 shadow-sm";
@@ -28,27 +27,19 @@ bestSellers.forEach(item => {
   cards.push(div);
 });
 
-// Inisialisasi
 let current = 0;
 cards[current].classList.add('active');
 
 function nextCard() {
   const prev = current;
   current = (current + 1) % cards.length;
-
-  // Fade out prev
   cards[prev].classList.remove('active');
-
-  // Delay sedikit sebelum next muncul
-  setTimeout(() => {
-    cards[current].classList.add('active');
-  }, 500); // blur/fade out 0.5s
+  setTimeout(() => cards[current].classList.add('active'), 500);
 }
 
-// Loop carousel
-setInterval(nextCard, 3500); // 3 detik stay + 0.5 detik fade
+setInterval(nextCard, 3500);
 
-// Menu Juice Example
+// Menu Juice
 const menuJuice = [
   {name:"Jus Alpukat",price:"Rp 5K"},
   {name:"Jus Mangga",price:"Rp 5K"},
@@ -58,16 +49,15 @@ const menuJuice = [
   {name:"Jus Melon",price: "Rp 5K"}, 
   {name:"Jus Jambu",price: "Rp 5K"} 
 ];
-
 const juiceContainer = document.getElementById('menu-juice');
 menuJuice.forEach(item=>{
   const div = document.createElement('div');
-  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm";
+  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm hover:bg-primary/10 cursor-pointer transition";
   div.innerHTML=`<p class="font-bold">${item.name}</p><p class="text-primary font-black">${item.price}</p>`;
   juiceContainer.appendChild(div);
 });
 
-// Menu Non-Juice Example
+// Menu Non-Juice
 const menuNonJuice = [
   {name:"Es Campur",price:"Rp 5K"},
   {name:"Es Lemon Selasih",price: "Rp 5K"}, 
@@ -77,16 +67,15 @@ const menuNonJuice = [
   {name:"Nutrisari",price: "Rp 3K"}, 
   {name:"Teh Sisri",price: "Rp 1K"}, 
 ];
-
 const nonJuiceContainer = document.getElementById('menu-nonjuice');
 menuNonJuice.forEach(item=>{
   const div = document.createElement('div');
-  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm";
+  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm hover:bg-primary/10 cursor-pointer transition";
   div.innerHTML=`<p class="font-bold">${item.name}</p><p class="text-primary font-black">${item.price}</p>`;
   nonJuiceContainer.appendChild(div);
 });
 
-  // Menu images
+// Menu Images
 const menuImages = {
   "Jus Alpukat": "https://img.freepik.com/free-photo/refreshing-avocado-smoothie_23-2151954260.jpg",
   "Jus Mangga": "https://img.freepik.com/free-photo/mango-smoothie_23-2151954260.jpg",
@@ -105,52 +94,55 @@ const menuImages = {
   "Teh Sisri": "https://img.freepik.com/free-photo/tea_23-2151954260.jpg"
 };
 
-// Fungsi buat bikin popup dengan animasi
-function createPopup(item) {
-  // Hapus popup lama kalau ada
+// Create Popup Function
+function createPopup(item){
   const old = document.getElementById("menu-popup");
   if(old) old.remove();
 
-  // Tambah blur ke body
-  document.body.classList.add("blurred-bg");
+  // overlay blur
+  const overlay = document.createElement('div');
+  overlay.id = 'menu-overlay';
+  overlay.className = 'fixed inset-0 bg-black/30 backdrop-blur-sm z-40';
+  document.body.appendChild(overlay);
 
-  const div = document.createElement("div");
-  div.id = "menu-popup";
-  div.className = `
-    fixed inset-0 flex items-center justify-center z-50 p-4 
-    bg-black/50 backdrop-blur-sm opacity-0 scale-90 transition-all duration-300
-  `;
-  div.innerHTML = `
-    <div class="bg-white dark:bg-[#2d2c18] rounded-xl p-4 max-w-xs w-full text-center shadow-lg transform transition-all duration-300 scale-90 opacity-0">
+  // modal content
+  const modal = document.createElement('div');
+  modal.id = 'menu-popup';
+  modal.className = `fixed inset-0 flex items-center justify-center z-50 p-4`;
+  modal.innerHTML = `
+    <div class="bg-white dark:bg-[#2d2c18] rounded-xl p-4 w-full max-w-xs text-center shadow-lg flex flex-col items-center gap-3">
       <button id="close-popup" class="absolute top-2 right-2 text-xl font-bold">&times;</button>
-      <img src="${menuImages[item.name] || ''}" alt="${item.name}" class="w-40 h-40 object-contain mx-auto mb-4">
-      <p class="text-[#1c1b0d] dark:text-white text-lg font-bold mb-2">${item.name}</p>
-      <p class="text-primary font-black">${item.price}</p>
+      <img src="${menuImages[item.name] || ''}" alt="${item.name}" class="w-40 h-40 object-contain mx-auto mb-2">
+      <p class="text-[#1c1b0d] dark:text-white text-lg font-bold">${item.name}</p>
+      <p class="text-primary font-black mb-2">${item.price}</p>
+      <div class="flex gap-2 items-center">
+        <input type="number" min="1" value="1" id="order-qty" class="border rounded px-2 w-16 text-center" />
+        <button id="order-btn" class="bg-green-500 text-white px-3 py-1 rounded">Order</button>
+      </div>
     </div>
   `;
-  document.body.appendChild(div);
+  document.body.appendChild(modal);
 
-  // Trigger animasi masuk
-  requestAnimationFrame(() => {
-    div.style.opacity = "1";
-    div.style.scale = "1";
-    div.firstElementChild.style.opacity = "1";
-    div.firstElementChild.style.scale = "1";
+  // animasi masuk
+  requestAnimationFrame(()=>{
+    overlay.style.opacity='1';
+    modal.firstElementChild.style.transform='scale(1)';
+    modal.firstElementChild.style.opacity='1';
   });
 
-  // Tutup popup
-  document.getElementById("close-popup").addEventListener("click", () => {
-    // animasi keluar
-    div.style.opacity = "0";
-    div.style.scale = "0.9";
-    div.firstElementChild.style.opacity = "0";
-    div.firstElementChild.style.scale = "0.9";
+  // close popup
+  modal.querySelector('#close-popup').addEventListener('click', ()=>{
+    modal.firstElementChild.style.opacity='0';
+    modal.firstElementChild.style.transform='scale(0.9)';
+    overlay.remove();
+    modal.remove();
+  });
 
-    // hapus blur dan popup setelah animasi
-    setTimeout(() => {
-      div.remove();
-      document.body.classList.remove("blurred-bg");
-    }, 300);
+  // Order button ke WA
+  modal.querySelector('#order-btn').addEventListener('click', ()=>{
+    const qty = modal.querySelector('#order-qty').value || 1;
+    const msg = encodeURIComponent(`Halo, saya ingin pesan ${qty} x ${item.name} (${item.price})`);
+    window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
   });
 }
 
@@ -158,8 +150,8 @@ function createPopup(item) {
 menuJuice.forEach(item => {
   const div = [...juiceContainer.children].find(d => d.querySelector("p").textContent === item.name);
   if(div){
-    div.style.cursor = "pointer";
-    div.addEventListener("click", () => createPopup(item));
+    div.style.cursor='pointer';
+    div.addEventListener('click', ()=>createPopup(item));
   }
 });
 
@@ -167,16 +159,15 @@ menuJuice.forEach(item => {
 menuNonJuice.forEach(item => {
   const div = [...nonJuiceContainer.children].find(d => d.querySelector("p").textContent === item.name);
   if(div){
-    div.style.cursor = "pointer";
-    div.addEventListener("click", () => createPopup(item));
+    div.style.cursor='pointer';
+    div.addEventListener('click', ()=>createPopup(item));
   }
 });
 
-
 // WA Order Button
-document.getElementById('order-wa').onclick = ()=>window.open(`https://wa.me/${WA_NUMBER}`);
+document.getElementById('order-wa')?.addEventListener('click', ()=>window.open(`https://wa.me/${WA_NUMBER}`));
 
 // Lihat Menu scroll to juice
-document.getElementById('lihat-menu').onclick = ()=>juiceContainer.scrollIntoView({behavior:"smooth"});
+document.getElementById('lihat-menu')?.addEventListener('click', ()=>juiceContainer.scrollIntoView({behavior:"smooth"}));
 
 })();

@@ -55,7 +55,7 @@ tailwind.config = {
   </div>
 
   <div class="@container flex-1 flex flex-col justify-center">
-    <div class="@container p-6 flex flex-col min-h-[600px] gap-8 items-center justify-center text-center bg-cover bg-center bg-no-repeat hero-bg">
+    <div class="@container p-6 flex flex-col min-h-[600px] gap-8 items-center justify-center text-center hero-bg">
       <div class="flex flex-col gap-3">
         <h1 class="text-[#1c1b0d] dark:text-white text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl uppercase">
           NIMA <span class="text-primary bg-[#1c1b0d] px-2 rounded-lg">JUICE</span>
@@ -66,10 +66,10 @@ tailwind.config = {
       </div>
 
       <div class="flex gap-3 mt-6">
-        <button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-[#1c1b0d] text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
+        <button id="lihat-menu" class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-[#1c1b0d] text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
           Lihat Menu
         </button>
-        <button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-background-dark border-2 border-primary text-[#1c1b0d] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+        <button id="order-wa" class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-background-dark border-2 border-primary text-[#1c1b0d] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
           Order WA
         </button>
       </div>
@@ -78,22 +78,96 @@ tailwind.config = {
 </div>
 
 <!-- Best Seller Section -->
-<div class="py-8 bg-background-light dark:bg-background-dark relative z-10 best-seller-section">
-  <!-- Judul -->
+<div class="py-8 bg-background-light dark:bg-background-dark relative z-10">
   <div class="relative px-4 pb-4 flex items-center justify-end">
     <h2 class="absolute left-1/2 -translate-x-1/2 text-[#1c1b0d] dark:text-white text-[24px] font-bold leading-tight justify-center text-center tracking-[-0.015em]">🔥 Best Seller</h2>
   </div>
   
-  <!-- Cards marquee -->
   <div class="overflow-hidden relative w-full">
     <div class="flex gap-4 animate-marquee" id="best-seller-cards">
-      <!-- Cards akan diisi langsung dari HTML/duplikat di sini -->
+      <!-- Best Seller cards akan diisi JS -->
     </div>
   </div>
 </div>
 
-<!-- Menu Sections, Operational Info, Location, Footer ... -->
-<!-- Bisa dipindahkan ke index.html sesuai struktur awal -->
+<!-- Menu Juice Section -->
+<div class="px-4 py-6">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Juice (10 Varian)</h3>
+<div class="grid grid-cols-1 gap-4" id="menu-juice">
+  <!-- Juice items akan diisi JS -->
+</div>
+</div>
+
+<!-- Menu Non-Juice Section -->
+<div class="px-4 py-6">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Non-Juice (4 Varian)</h3>
+<div class="grid grid-cols-2 gap-4" id="menu-nonjuice">
+  <!-- Non-Juice items akan diisi JS -->
+</div>
+</div>
+
+<!-- Operational & QR Info -->
+<div class="m-4 p-6 bg-primary rounded-xl flex flex-col items-center gap-6 text-[#1c1b0d]">
+  <div class="text-center">
+    <h4 class="text-xl font-black mb-1">Scan to Order</h4>
+    <p class="text-xs font-medium opacity-80 italic">Bayar jadi mudah lewat QRIS</p>
+  </div>
+  <div class="bg-white p-4 rounded-xl shadow-xl">
+    <div class="size-40 bg-[#f8f8f5] flex items-center justify-center border-2 border-[#1c1b0d]/10 rounded-lg">
+      <span class="material-symbols-outlined text-8xl text-[#1c1b0d]">qr_code_2</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-4 w-full">
+    <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
+      <span class="material-symbols-outlined">schedule</span>
+      <div>
+        <p class="text-xs font-bold uppercase tracking-wider">Jam Operasional</p>
+        <p class="text-sm font-medium">Buka Setiap Hari: 10:00 - 20:00</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
+      <span class="material-symbols-outlined">info</span>
+      <p class="text-sm font-medium">NIMA JUICE: Buah segar pilihan pasar pagi setiap hari.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Location Section -->
+<div class="px-4 py-8">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold mb-4">📍 Lokasi Kami</h3>
+<div class="w-full h-60 rounded-xl overflow-hidden bg-gray-200 shadow-inner">
+  <div class="w-full h-full bg-cover bg-center relative" data-alt="Google Maps placeholder view of Bandung city" data-location="Bandung, Indonesia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsqbNFAE0ye5CFzdjHxN2kr-pdfJYvd5TQWlj3E8d8DqXzoPi_-Fuoh9swfKGB0OmAU6T2GNOXP_dTvHJzzHYtwaDV8OLlZ6glS9lGjlaFZTOGp4r99lTf8UBZUT6yQP2JHlBPjZMQrTGIXgo3vyQkj73N78Fe70yftyqayon7z92VkGvsl1faEp5BJZ-N3sW0uwBAovetjvwc0WpndlKTQnuwROHAWPXO_sG55Tc1_B2WLuCY404Dn1QJx6SMHrKWTfIyrgwMS6fR");'>
+    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+      <div class="bg-white p-2 rounded-full shadow-lg">
+        <span class="material-symbols-outlined text-red-600 text-4xl">location_on</span>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="mt-3 text-sm text-[#9c9549] dark:text-[#9c9549] font-medium cursor-pointer" id="alamat">Jl. Sanding RT/RW 01/013, Paseh, Kab.Bandung, Jawa Barat.</p>
+</div>
+
+<!-- Footer -->
+<footer class="bg-[#1c1b0d] text-white p-8 rounded-t-xl text-center">
+<h2 class="text-2xl font-black mb-2">NIMA <span class="text-primary">JUICE</span></h2>
+<p class="text-sm text-gray-400 mb-8 max-w-[240px] mx-auto italic">"Kesegaran yang membahagiakan harimu, satu gelas pada satu waktu."</p>
+<div class="flex justify-center gap-6 mb-8">
+  <a class="size-12 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg" href="#">
+    <span class="material-symbols-outlined">chat</span>
+  </a>
+  <a class="size-12 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 flex items-center justify-center text-white shadow-lg" href="#">
+    <span class="material-symbols-outlined">photo_camera</span>
+  </a>
+  <a class="size-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg" href="#">
+    <span class="material-symbols-outlined">social_leaderboard</span>
+  </a>
+  <a class="size-12 rounded-full bg-black flex items-center justify-center text-white border border-white/20 shadow-lg" href="#">
+    <span class="material-symbols-outlined">play_arrow</span>
+  </a>
+</div>
+<div class="h-px bg-white/10 w-full mb-6"></div>
+<p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 NIMA JUICE</p>
+</footer>
 
 <!-- Custom JS -->
 <script src="script.js"></script>

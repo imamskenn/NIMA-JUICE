@@ -25,6 +25,21 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   filter: blur(0);
   z-index: 2;
 }
+/* Blur ke body saat popup aktif */
+.blurred-bg {
+  transition: filter 0.3s ease;
+  filter: blur(4px);
+}
+
+/* Animasi scale & opacity untuk popup card */
+#menu-popup > div {
+  transform: scale(0.9);
+  opacity: 0;
+}
+#menu-popup.show > div {
+  transform: scale(1);
+  opacity: 1;
+}
 
 
 

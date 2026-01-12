@@ -1,49 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIMA Juice</title>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NIMA JUICE - Segarnya Buah Asli</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f4e225",
+                        "background-light": "#fcfbf8",
+                        "background-dark": "#222110",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
 <style>
-  body {
-    margin:0;
-    padding:0;
-    font-family: Arial, sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    background:#f4f4f4;
-  }
-  .container {
-    text-align:center;
-  }
-  h1 {
-    font-size:28px;
-    color:#333;
-    margin-bottom:20px;
-  }
-  a.button {
-    display:inline-block;
-    padding:12px 25px;
-    background:#ff6f61;
-    color:white;
-    border-radius:12px;
-    text-decoration:none;
-    font-size:16px;
-    transition:0.3s;
-  }
-  a.button:hover {
-    background:#ff3b2f;
-  }
-</style>
-</head>
-<body>
-
-<div class="container">
-  <h1>Selamat Datang di NIMA Juice</h1>
-  <a href="src/pages/Login/Login.html" class="button">Login</a>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .parallax-bg { background-attachment: fixed; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Floating particles simulation */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.15;
+            z-index: 0;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-[#1c1b0d] font-display overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<div class="fixed top-0 left-0 right-0 z-50 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-primary/10">
+<div class="text-[#1c1b0d] dark:text-white flex size-10 shrink-0 items-center justify-center bg-primary rounded-full">
+<span class="material-symbols-outlined">local_drink</span>
 </div>
-
-</body>
-</html>
+<h2 class="text-[#1c1b0d] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">NIMA JUICE</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-transparent text-[#1c1b0d] dark:text-white">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<!-- Hero Section with Parallax Intent -->
+<div class="relative min-h-screen flex flex-col pt-16">
+<!-- Floating Particles Decorative Layer -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+<span class="material-symbols-outlined particle text-6xl top-20 left-10 text-orange-400">nutrition</span>
+<span class="material-symbols-outlined particle text-4xl top-40 right-20 text-yellow-500">eco</span>
+<span class="material-symbols-outlined particle text-5xl bottom-1/4 left-1/3 text-primary">water_drop</span>
+<span class="material-symbols-outlined particle text-3xl top-1/2 right-10 text-orange-300">circle</span>
+</div>
+<div class="@container flex-1 flex flex-col justify-center">
+<div class="@[480px]:p-4">
+<div class="flex min-h-[600px] flex-col gap-8 bg-cover bg-center bg-no-repeat @[480px]:rounded-xl items-center justify-center p-6 text-center" data-alt="Refreshing orange juice glass with fruit slices" style='background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgba(252, 251, 248, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");'>
+<div class="bg-primary/20 p-2 rounded-full mb-4">
+<div class="bg-primary p-6 rounded-full shadow-2xl shadow-primary/40">
+<span class="material-symbols-outlined text-6xl text-white">chip_extraction</span>
+</div>
+</div>
+<div class="flex flex-col gap-3">
+<h1 class="text-[#1c1b0d] dark:text-white text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl uppercase">
+                            NIMA <span class="text-primary bg-[#1c1b0d] px-2 rounded-lg">JUICE</span>
+</h1>
+<h2 class="text-[#1c1b0d]/70 dark:text-white/70 text-base font-medium leading-normal max-w-[280px] mx-auto">
+                            Segarnya Buah Asli di Setiap Tetesan Tanpa Pengawet
+                        </h2>
+</div>
+<div class="flex gap-3">
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-[#1c1b0d] text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
+                            Lihat Menu
+                        </button>
+<button class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-background-dark border-2 border-primary text-[#1c1b0d] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+                            Order WA
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Best Seller Section -->
+<div class="py-8 bg-background-light dark:bg-background-dark relative z-10">
+<div class="flex items-center justify-between px-4 pb-4">
+<h2 class="text-[#1c1b0d] dark:text-white text-[24px] font-bold leading-tight tracking-[-0.015em]">🔥 Best Seller</h2>
+<span class="text-primary font-bold text-sm">Lihat Semua</span>
+</div>
+<div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory">
+<div class="flex items-stretch p-4 gap-4">
+<!-- Card 1 -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl min-w-[280px] snap-center bg-white dark:bg-[#2d2c18] p-3 shadow-sm">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl flex flex-col relative" data-alt="Creamy avocado juice with chocolate swirl" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB51TUNn_XgbdiyOUVNJlrSLW5BVnNLgC4sfheXHQ1Mnp6bYm0Pq6k_Gv1SZL0zU6iVrsI_OsMw7OemZAZjzCNGYh0efYel993HK4FnE3Lsy29I1kB5GSW7ljOTwhgOscKUHdZBT7Ndmx5QgG_6FMPsYN6H81cxSVTEbVYh-q9ZYbpBjaMSWZo9nwt1OBiR_vhFIaT0uLjdCRA89D4QB4Q62z70iElI7OStAtg6G9nlIpvBVzdf2PgFWcoBNfA7-MfS-bEgF-wMIXV7");'>
+<div class="absolute top-3 left-3 bg-primary px-3 py-1 rounded-full text-xs font-bold text-[#1c1b0d]">#1 Seller</div>
+</div>
+<div class="px-1">
+<p class="text-[#1c1b0d] dark:text-white text-lg font-bold">Alpukat Kocok</p>
+<p class="text-[#9c9549] text-sm font-medium">Extra Creamy &amp; Sweet</p>
+<div class="flex justify-between items-center mt-3">
+<span class="text-lg font-black text-primary">Rp 18.000</span>
+<button class="bg-primary/20 p-2 rounded-full text-[#1c1b0d] dark:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl min-w-[280px] snap-center bg-white dark:bg-[#2d2c18] p-3 shadow-sm">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl flex flex-col relative" data-alt="Thai mango dessert with fresh slices" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCvR2OKAySiH_JDT0Qcs0lu2FzGDtbVQWUB0iryFTkA2QJGKm57lG-nTBWJUWwOT4oaI1Wh8aUleAPEdq2hR-1p0_EWBL4Ye-Do5gSNLeDiDxlJZ9qU3IEXox2xiKwM8KBowZDn_lXjL-n2FmbV7ov0S83Vbs6z8xjjLS9zBTaBPETQTQDRNnq4UoNIx2DcGY0Mij7neawcRK4V0Kh-H1OrH-wi3EC2bLVkCpaCmEE2Ul2SMzBDuQpl0TMlvLNDpm3hqGT1vDR8ONpu");'>
+<div class="absolute top-3 left-3 bg-primary px-3 py-1 rounded-full text-xs font-bold text-[#1c1b0d]">#2 Seller</div>
+</div>
+<div class="px-1">
+<p class="text-[#1c1b0d] dark:text-white text-lg font-bold">Mango Thai</p>
+<p class="text-[#9c9549] text-sm font-medium">Fresh Mango Puree</p>
+<div class="flex justify-between items-center mt-3">
+<span class="text-lg font-black text-primary">Rp 22.000</span>
+<button class="bg-primary/20 p-2 rounded-full text-[#1c1b0d] dark:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex h-full flex-1 flex-col gap-4 rounded-xl min-w-[280px] snap-center bg-white dark:bg-[#2d2c18] p-3 shadow-sm">
+<div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl flex flex-col relative" data-alt="Freshly squeezed orange juice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAuSj1uDMPJIUX5nQgfP0-7IAej7RNDT6UxRctuQhqYGABShkarnaA5amFRyjb7mudtN5qfyN8NFp46c0B1DqIScSJFPn-7fsOvrSKDgkQv-muru6TE_Dg99cbg933Q-dyydeNw9sJlgWNNhGEKaIgM723ZlpYqlNzwbc-v2tb0apfpNakOwg1QCgPfhqbxbp602qQEmr43JYGq-4mzS2LvSPqN67Ge1rKn-dYyCkXVoXO7Az4X92DErVaGLQ0D_aJU9i-bMndHsPPs");'>
+<div class="absolute top-3 left-3 bg-primary px-3 py-1 rounded-full text-xs font-bold text-[#1c1b0d]">#3 Seller</div>
+</div>
+<div class="px-1">
+<p class="text-[#1c1b0d] dark:text-white text-lg font-bold">Jus Jeruk Murni</p>
+<p class="text-[#9c9549] text-sm font-medium">100% Sunkist Fresh</p>
+<div class="flex justify-between items-center mt-3">
+<span class="text-lg font-black text-primary">Rp 15.000</span>
+<button class="bg-primary/20 p-2 rounded-full text-[#1c1b0d] dark:text-white">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Menu Section: Juice -->
+<div class="px-4 py-6">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Juice (10 Varian)</h3>
+<div class="grid grid-cols-1 gap-4">
+<!-- Menu Item 1 -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#2d2c18] p-3 rounded-lg shadow-sm border border-black/5">
+<div class="size-20 rounded-lg bg-cover bg-center" data-alt="Strawberry juice glass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCqBC_F7_5I4e4emV6atwYpl6Dmgm2pMDmfdasYDB3xoxAE6ghXtuupiEVpk7pKwtnT7564qJyk79vHBUH0QMrFLNzt92I3k8p568iw8bf-bH1q2oDxgsuSXozuQ9abXJFz4jUc6RdvgyU6VV1pHJiOO85Rsf7XFze48LDn5M6x3ikoXrcQYGbanKJk7sxMS3fKRNYIGWzhYOC2Jrhq5Me3rKixhGGsl0Qzl2K42_fD8IDpKVldQEZz1a6_Dc-KP2gBbOKRRBYFCNIT");'></div>
+<div class="flex-1">
+<p class="text-[#1c1b0d] dark:text-white font-bold">Jus Stroberi</p>
+<p class="text-[#9c9549] text-xs">Kaya Vitamin C</p>
+<p class="text-primary font-bold mt-1">Rp 15.000</p>
+</div>
+<button class="bg-primary size-10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white">add</span>
+</button>
+</div>
+<!-- Menu Item 2 -->
+<div class="flex items-center gap-4 bg-white dark:bg-[#2d2c18] p-3 rounded-lg shadow-sm border border-black/5">
+<div class="size-20 rounded-lg bg-cover bg-center" data-alt="Guava juice" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhyj6FHIIPlZrXBaKhN8Rz0qjTmJnCcoFaa5_2-xc9XmdXombXYuVH9MPuaHKggPnkSj7tis5don34-fOfVHrl2D-r1buXt5_wbDZ0AYkmTHCxYiHDiuag5V6TxBqF5i76oYGsWPbdJ_MXkIaKe2SSYya_isKIbIZMQ67QRvPWvNji1Ip3Rlu1BBX7xduDGuAFvwToa0KZvEqHaBj7ULLBR8RvZlx5PJb3chbYbJgzmSx_w1M9WQg7-Cu7h4GqnIDzdUm8gX4DLZi0");'></div>
+<div class="flex-1">
+<p class="text-[#1c1b0d] dark:text-white font-bold">Jus Jambu Biji</p>
+<p class="text-[#9c9549] text-xs">Anti-Oksidan Tinggi</p>
+<p class="text-primary font-bold mt-1">Rp 12.000</p>
+</div>
+<button class="bg-primary size-10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white">add</span>
+</button>
+</div>
+<!-- More Juice items placeholder... -->
+<div class="text-center py-2">
+<button class="text-[#9c9549] text-sm font-bold flex items-center justify-center w-full gap-1">
+                     Muat 8 Lainnya <span class="material-symbols-outlined text-xs">keyboard_arrow_down</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Menu Section: Non-Juice -->
+<div class="px-4 py-6">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Non-Juice (4 Varian)</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-[#2d2c18] p-3 rounded-lg shadow-sm">
+<div class="w-full aspect-square bg-cover bg-center rounded-lg mb-3" data-alt="Thai iced tea" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhr-_NR7CHbJd2ayTlpgTJ-9tVcxfoy-M9gNdqmNTd-F9h13Eqk-sKRReLwQfwIJF1oH2cru8umBywPFjY160_ndlBlOdAece4E6aActtVIpW8pBiuQ2AKBLozACoZoujdOtIltP9cIp0oxXU6WusekcPJLJqs7fBml1ydNCDOWGbalMcZVRdFMdhmQmTBIK15raJfTBTwZbKchMdA9_NowlxgGd7LsqK9nu-oGA6VDZ7DtkJWH9mQ95WYEoySGvqA_-iS5L-XLh74");'></div>
+<p class="text-[#1c1b0d] dark:text-white font-bold text-sm">Thai Tea Original</p>
+<p class="text-primary font-bold text-sm">Rp 10.000</p>
+</div>
+<div class="bg-white dark:bg-[#2d2c18] p-3 rounded-lg shadow-sm">
+<div class="w-full aspect-square bg-cover bg-center rounded-lg mb-3" data-alt="Iced palm sugar coffee" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDS9qHfiLvWPILmuVlWQ9o7HVQ8ozF1oSZHMnZDw7W1TG3O2eSHkSHoMSy68Ipe7bwm8LsXZ1z0Cl15-eTS-J2DlR2_C6e5fXyZapUeADf4CIdSqscfov6IFNlSr4haXQ9Nr9RrFtPkSWu3L3unsLIcjBxC2hAfP6zpc0heC5OvIJvizu-rU0qdf9HGxM_VVqi9wW43SXEERChobHTQjlbBunH-CwUMG8kH1FmOx9di3xWSyo-rYDJEm8RqOoTnLolgx15Lhr78pKwr");'></div>
+<p class="text-[#1c1b0d] dark:text-white font-bold text-sm">Coffee Gula Aren</p>
+<p class="text-primary font-bold text-sm">Rp 13.000</p>
+</div>
+</div>
+</div>
+<!-- Operational & QR Info -->
+<div class="m-4 p-6 bg-primary rounded-xl flex flex-col items-center gap-6 text-[#1c1b0d]">
+<div class="text-center">
+<h4 class="text-xl font-black mb-1">Scan to Order</h4>
+<p class="text-xs font-medium opacity-80 italic">Bayar jadi mudah lewat QRIS</p>
+</div>
+<div class="bg-white p-4 rounded-xl shadow-xl">
+<div class="size-40 bg-[#f8f8f5] flex items-center justify-center border-2 border-[#1c1b0d]/10 rounded-lg">
+<span class="material-symbols-outlined text-8xl text-[#1c1b0d]">qr_code_2</span>
+</div>
+</div>
+<div class="flex flex-col gap-4 w-full">
+<div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
+<span class="material-symbols-outlined">schedule</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-wider">Jam Operasional</p>
+<p class="text-sm font-medium">Buka Setiap Hari: 10:00 - 20:00</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
+<span class="material-symbols-outlined">info</span>
+<p class="text-sm font-medium">NIMA JUICE: Buah segar pilihan pasar pagi setiap hari.</p>
+</div>
+</div>
+</div>
+<!-- Location Section -->
+<div class="px-4 py-8">
+<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold mb-4">📍 Lokasi Kami</h3>
+<div class="w-full h-60 rounded-xl overflow-hidden bg-gray-200 shadow-inner">
+<div class="w-full h-full bg-cover bg-center relative" data-alt="Google Maps placeholder view of Bandung city" data-location="Bandung, Indonesia" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsqbNFAE0ye5CFzdjHxN2kr-pdfJYvd5TQWlj3E8d8DqXzoPi_-Fuoh9swfKGB0OmAU6T2GNOXP_dTvHJzzHYtwaDV8OLlZ6glS9lGjlaFZTOGp4r99lTf8UBZUT6yQP2JHlBPjZMQrTGIXgo3vyQkj73N78Fe70yftyqayon7z92VkGvsl1faEp5BJZ-N3sW0uwBAovetjvwc0WpndlKTQnuwROHAWPXO_sG55Tc1_B2WLuCY404Dn1QJx6SMHrKWTfIyrgwMS6fR");'>
+<div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+<div class="bg-white p-2 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-red-600 text-4xl">location_on</span>
+</div>
+</div>
+</div>
+</div>
+<p class="mt-3 text-sm text-[#9c9549] dark:text-[#9c9549] font-medium">Jl. Sanding RT/RW 01/013, Paseh, Kab.Bandung, Jawa Barat.</p>
+</div>
+<!-- Footer -->
+<footer class="bg-[#1c1b0d] text-white p-8 rounded-t-xl text-center">
+<h2 class="text-2xl font-black mb-2">NIMA <span class="text-primary">JUICE</span></h2>
+<p class="text-sm text-gray-400 mb-8 max-w-[240px] mx-auto italic">"Kesegaran yang membahagiakan harimu, satu gelas pada satu waktu."</p>
+<div class="flex justify-center gap-6 mb-8">
+<a class="size-12 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg" href="#">
+<span class="material-symbols-outlined">chat</span>
+</a>
+<a class="size-12 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 flex items-center justify-center text-white shadow-lg" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="size-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="size-12 rounded-full bg-black flex items-center justify-center text-white border border-white/20 shadow-lg" href="#">
+<span class="material-symbols-outlined">play_arrow</span>
+</a>
+</div>
+<div class="h-px bg-white/10 w-full mb-6"></div>
+<p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 NIMA JUICE</p>
+</footer>
+</body></html>

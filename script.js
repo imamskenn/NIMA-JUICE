@@ -14,36 +14,34 @@ const cards = [];
 // Buat card
 bestSellers.forEach((item) => {
     const div = document.createElement('div');
-    div.className = "flex-shrink-0 w-full flex flex-col gap-2 rounded-xl bg-white dark:bg-[#2d2c18] p-3 shadow-sm transition-all duration-700 ease-in-out";
-    div.style.opacity = 0; // start hidden
+    div.className = "carousel-card flex flex-col gap-2 rounded-xl bg-white dark:bg-[#2d2c18] p-3 shadow-sm";
     div.innerHTML = `
-      <div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl relative" 
-           style='background-image:url("${item.img}")'></div>
-      <div class="px-1">
-        <p class="text-[#1c1b0d] dark:text-white text-lg font-bold">${item.name}</p>
-        <p class="text-[#9c9549] text-sm font-medium">${item.desc}</p>
-      </div>
-    `;
+  <div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl relative" 
+       style='background-image:url("${item.img}")'></div>
+  <div class="px-1 flex flex-col items-center justify-center text-center">
+    <p class="text-[#1c1b0d] dark:text-white text-lg font-bold">${item.name}</p>
+    <p class="text-[#9c9549] text-sm font-medium">${item.desc}</p>
+  </div>
+`;
+
     cardsContainer.appendChild(div);
     cards.push(div);
 });
 
-// Carousel otomatis
 let current = 0;
-cards[current].style.opacity = 1;
+cards[current].classList.add('active');
 
 setInterval(() => {
-    // hide current
-    cards[current].style.opacity = 0;
-    cards[current].style.filter = "blur(4px)";
-    
-    // next card
+    const prev = current;
     current = (current + 1) % cards.length;
-    
-    // show next
-    cards[current].style.opacity = 1;
-    cards[current].style.filter = "blur(0px)";
-}, 3000); // 3 detik per card
+
+    // fade out previous
+    cards[prev].classList.remove('active');
+
+    // fade in next
+    cards[current].classList.add('active');
+}, 3000);
+
 
 
 

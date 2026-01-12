@@ -1,11 +1,11 @@
 (function(){
-const WA_NUMBER = '6281234567890';
+const WA_NUMBER = '6283829560114';
 
 // Best Seller Cards
 const bestSellers = [
-  {name:"Alpukat Kocok",desc:"Extra Creamy & Sweet",price:"Rp 18.000",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuB51TUNn_XgbdiyOUVNJlrSLW5BVnNLgC4sfheXHQ1Mnp6bYm0Pq6k_Gv1SZL0zU6iVrsI_OsMw7OemZAZjzCNGYh0efYel993HK4FnE3Lsy29I1kB5GSW7ljOTwhgOscKUHdZBT7Ndmx5QgG_6FMPsYN6H81cxSVTEbVYh-q9ZYbpBjaMSWZo9nwt1OBiR_vhFIaT0uLjdCRA89D4QB4Q62z70iElI7OStAtg6G9nlIpvBVzdf2PgFWcoBNfA7-MfS-bEgF-wMIXV7"},
-  {name:"Mango Thai",desc:"Fresh Mango Puree",price:"Rp 22.000",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCvR2OKAySiH_JDT0Qcs0lu2FzGDtbVQWUB0iryFTkA2QJGKm57lG-nTBWJUWwOT4oaI1Wh8aUleAPEdq2hR-1p0_EWBL4Ye-Do5gSNLeDiDxlJZ9qU3IEXox2xiKwM8KBowZDn_lXjL-n2FmbV7ov0S83Vbs6z8xjjLS9zBTaBPETQTQDRNnq4UoNIx2DcGY0Mij7neawcRK4V0Kh-H1OrH-wi3EC2bLVkCpaCmEE2Ul2SMzBDuQpl0TMlvLNDpm3hqGT1vDR8ONpu"},
-  {name:"Jus Jeruk Murni",desc:"100% Sunkist Fresh",price:"Rp 15.000",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuAuSj1uDMPJIUX5nQgfP0-7IAej7RNDT6UxRctuQhqYGABShkarnaA5amFRyjb7mudtN5qfyN8NFp46c0B1DqIScSJFPn-7fsOvrSKDgkQv-muru6TE_Dg99cbg933Q-dyydeNw9sJlgWNNhGEKaIgM723ZlpYqlNzwbc-v2tb0apfpNakOwg1QCgPfhqbxbp602qQEmr43JYGq-4mzS2LvSPqN67Ge1rKn-dYyCkXVoXO7Az4X92DErVaGLQ0D_aJU9i-bMndHsPPs"}
+  {name:"Jus Alpukat",desc:"Hayang Deui!!",price:"Rp 5K",img:"https://img.freepik.com/free-photo/refreshing-avocado-smoothie_23-2151954260.jpg?t=st=1768214267~exp=1768217867~hmac=58296fb16765b0cd3d7190e1c86952081fc763d9929800126b173c17faa94067"},
+  {name:"Cappucino Cincau",desc:"Madep Pokonamah!!",price:"Rp 5K",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuCvR2OKAySiH_JDT0Qcs0lu2FzGDtbVQWUB0iryFTkA2QJGKm57lG-nTBWJUWwOT4oaI1Wh8aUleAPEdq2hR-1p0_EWBL4Ye-Do5gSNLeDiDxlJZ9qU3IEXox2xiKwM8KBowZDn_lXjL-n2FmbV7ov0S83Vbs6z8xjjLS9zBTaBPETQTQDRNnq4UoNIx2DcGY0Mij7neawcRK4V0Kh-H1OrH-wi3EC2bLVkCpaCmEE2Ul2SMzBDuQpl0TMlvLNDpm3hqGT1vDR8ONpu"},
+  {name:"Jus Mangga",desc:"100% Mangga Aseli!!",price:"Rp 5K",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuAuSj1uDMPJIUX5nQgfP0-7IAej7RNDT6UxRctuQhqYGABShkarnaA5amFRyjb7mudtN5qfyN8NFp46c0B1DqIScSJFPn-7fsOvrSKDgkQv-muru6TE_Dg99cbg933Q-dyydeNw9sJlgWNNhGEKaIgM723ZlpYqlNzwbc-v2tb0apfpNakOwg1QCgPfhqbxbp602qQEmr43JYGq-4mzS2LvSPqN67Ge1rKn-dYyCkXVoXO7Az4X92DErVaGLQ0D_aJU9i-bMndHsPPs"}
 ];
 
 // loop untuk marquee
@@ -33,10 +33,13 @@ bestSellers.concat(bestSellers).forEach((item,index)=>{
 
 // Menu Juice Example
 const menuJuice = [
-  {name:"Jus Apel",price:"Rp 12.000"},
-  {name:"Jus Mangga",price:"Rp 15.000"},
-  {name:"Jus Jeruk",price:"Rp 10.000"},
-  {name:"Jus Melon",price:"Rp 14.000"}
+  {name:"Jus Alpukat",price:"Rp 5K"},
+  {name:"Jus Mangga",price:"Rp 5K"},
+  {name:"Jus Buah Naga",price:"Rp 5K"},
+  {name:"Jus Sirsak",price:"Rp 5K"},
+  {name:"Jus Nanas",price: "Rp 5K"},
+  {name:"Jus Melon",price: "Rp 5K"}, 
+  {name:"Jus Jambu",price: "Rp 5K"} 
 ];
 
 const juiceContainer = document.getElementById('menu-juice');
@@ -49,8 +52,13 @@ menuJuice.forEach(item=>{
 
 // Menu Non-Juice Example
 const menuNonJuice = [
-  {name:"Es Teh",price:"Rp 5.000"},
-  {name:"Air Mineral",price:"Rp 3.000"}
+  {name:"Es Campur",price:"Rp 5K"},
+  {name:"Es Lemon Selasih",price: "Rp 5K"}, 
+  {name:"Es Jeruk",price:"Rp 5K"},
+  {name:"Cappucino Cincau",price: "Rp 5K"}, 
+  {name:"Pop Ice",price: "Rp 3K"},
+  {name:"Jus Nutrisari",price: "Rp 3K"}, 
+  {name:"Teh Sisri",price: "Rp 1K"}, 
 ];
 
 const nonJuiceContainer = document.getElementById('menu-nonjuice');

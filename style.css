@@ -41,6 +41,16 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   opacity: 1;
 }
 
+#menu-juice div, #menu-nonjuice div {
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#menu-juice div:hover, #menu-nonjuice div:hover {
+  transform: scale(1.03);      /* sedikit membesar */
+  background-color: rgba(255,255,255,0.9); /* highlight ringan */
+  cursor: pointer;             /* ganti kursor jadi pointer */
+}
+
 
 
 

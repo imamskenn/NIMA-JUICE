@@ -9,9 +9,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgba(252, 251, 248, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
 }
 
-/* Marquee Animation */
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.animate-marquee { display: flex; animation: marquee 15s linear infinite; }
+
 
 /* Minimal body height fix */
 body { min-height: max(884px, 100dvh); }

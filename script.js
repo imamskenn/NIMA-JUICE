@@ -8,39 +8,46 @@ const bestSellers = [
   {name:"Jus Mangga",desc:"100% Mangga Aseli!!",price:"Rp 5K",img:"https://lh3.googleusercontent.com/aida-public/AB6AXuAuSj1uDMPJIUX5nQgfP0-7IAej7RNDT6UxRctuQhqYGABShkarnaA5amFRyjb7mudtN5qfyN8NFp46c0B1DqIScSJFPn-7fsOvrSKDgkQv-muru6TE_Dg99cbg933Q-dyydeNw9sJlgWNNhGEKaIgM723ZlpYqlNzwbc-v2tb0apfpNakOwg1QCgPfhqbxbp602qQEmr43JYGq-4mzS2LvSPqN67Ge1rKn-dYyCkXVoXO7Az4X92DErVaGLQ0D_aJU9i-bMndHsPPs"}
 ];
 
+// JS
 const cardsContainer = document.getElementById('best-seller-cards');
 const cards = [];
 
 // Buat card
-bestSellers.forEach((item) => {
-    const div = document.createElement('div');
-    div.className = "carousel-card flex flex-col gap-2 rounded-xl bg-white dark:bg-[#2d2c18] p-3 shadow-sm";
-    div.innerHTML = `
-  <div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl relative" 
-       style='background-image:url("${item.img}")'></div>
-  <div class="px-1 flex flex-col items-center justify-center text-center">
-    <p class="text-[#1c1b0d] dark:text-white text-lg font-bold">${item.name}</p>
-    <p class="text-[#9c9549] text-sm font-medium">${item.desc}</p>
-  </div>
-`;
-
-    cardsContainer.appendChild(div);
-    cards.push(div);
+bestSellers.forEach(item => {
+  const div = document.createElement('div');
+  div.className = "carousel-card flex flex-col gap-2 rounded-xl bg-white dark:bg-[#2d2c18] p-3 shadow-sm";
+  div.innerHTML = `
+    <div class="w-full bg-center bg-no-repeat aspect-[4/5] bg-cover rounded-xl relative" 
+         style='background-image:url("${item.img}")'></div>
+    <div class="px-1 text-center">
+      <p class="text-[#1c1b0d] dark:text-white text-lg font-bold">${item.name}</p>
+      <p class="text-[#9c9549] text-sm font-medium">${item.desc}</p>
+    </div>
+  `;
+  cardsContainer.appendChild(div);
+  cards.push(div);
 });
 
+// Inisialisasi
 let current = 0;
 cards[current].classList.add('active');
 
-setInterval(() => {
-    const prev = current;
-    current = (current + 1) % cards.length;
+function nextCard() {
+  const prev = current;
+  current = (current + 1) % cards.length;
 
-    // fade out previous
-    cards[prev].classList.remove('active');
+  // Fade out prev
+  cards[prev].classList.remove('active');
 
-    // fade in next
+  // Delay sedikit sebelum next muncul
+  setTimeout(() => {
     cards[current].classList.add('active');
-}, 3000);
+  }, 500); // blur/fade out 0.5s
+}
+
+// Loop carousel
+setInterval(nextCard, 3500); // 3 detik stay + 0.5 detik fade
+
 
 
 

@@ -23,4 +23,48 @@ bestSellers.concat(bestSellers).forEach((item,index)=>{
         <div class="flex justify-between items-center mt-3">
           <span class="text-lg font-black text-primary">${item.price}</span>
           <button class="bg-primary/20 p-2 rounded-full text-[#1c1b0d] dark:text-white">
-            <span
+            <span class="material-symbols-outlined">add_shopping_cart</span>
+          </button>
+        </div>
+      </div>
+    `;
+    cardsContainer.appendChild(div);
+});
+
+// Menu Juice Example
+const menuJuice = [
+  {name:"Jus Apel",price:"Rp 12.000"},
+  {name:"Jus Mangga",price:"Rp 15.000"},
+  {name:"Jus Jeruk",price:"Rp 10.000"},
+  {name:"Jus Melon",price:"Rp 14.000"}
+];
+
+const juiceContainer = document.getElementById('menu-juice');
+menuJuice.forEach(item=>{
+  const div = document.createElement('div');
+  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm";
+  div.innerHTML=`<p class="font-bold">${item.name}</p><p class="text-primary font-black">${item.price}</p>`;
+  juiceContainer.appendChild(div);
+});
+
+// Menu Non-Juice Example
+const menuNonJuice = [
+  {name:"Es Teh",price:"Rp 5.000"},
+  {name:"Air Mineral",price:"Rp 3.000"}
+];
+
+const nonJuiceContainer = document.getElementById('menu-nonjuice');
+menuNonJuice.forEach(item=>{
+  const div = document.createElement('div');
+  div.className="flex justify-between items-center bg-white dark:bg-[#2d2c18] rounded-xl p-3 shadow-sm";
+  div.innerHTML=`<p class="font-bold">${item.name}</p><p class="text-primary font-black">${item.price}</p>`;
+  nonJuiceContainer.appendChild(div);
+});
+
+// WA Order Button
+document.getElementById('order-wa').onclick = ()=>window.open(`https://wa.me/${WA_NUMBER}`);
+
+// Lihat Menu scroll to juice
+document.getElementById('lihat-menu').onclick = ()=>juiceContainer.scrollIntoView({behavior:"smooth"});
+
+})();

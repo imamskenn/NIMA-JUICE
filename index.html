@@ -191,5 +191,15 @@ tailwind.config = {
 </footer>
 <!-- Custom JS -->
 <script src="script.js"></script>
+<!-- Modal Card (awal hidden) -->
+<div id="menu-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
+  <div class="bg-white dark:bg-[#2d2c18] rounded-xl p-4 max-w-xs w-full text-center relative">
+    <button id="modal-close" class="absolute top-2 right-2 text-xl font-bold">&times;</button>
+    <img id="modal-img" class="w-full aspect-[4/5] object-cover rounded-lg mb-3" src="" alt="">
+    <p id="modal-name" class="text-lg font-bold text-[#1c1b0d] dark:text-white"></p>
+    <p id="modal-price" class="text-sm text-[#9c9549]"></p>
+  </div>
+</div>
+
 </body>
 </html>

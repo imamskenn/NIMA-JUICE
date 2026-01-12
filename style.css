@@ -9,21 +9,23 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgba(252, 251, 248, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
 }
 
-/* CSS */
 .carousel-card {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   opacity: 0;
-  filter: blur(4px);
-  transition: opacity 0.5s ease, filter 0.5s ease;
+  transform: scale(0.96);
+  filter: blur(6px);
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
 }
 
 .carousel-card.active {
   opacity: 1;
+  transform: scale(1);
   filter: blur(0);
+  z-index: 2;
 }
+
 
 
 

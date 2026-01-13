@@ -171,3 +171,191 @@ document.getElementById('order-wa')?.addEventListener('click', ()=>window.open(`
 document.getElementById('lihat-menu')?.addEventListener('click', ()=>juiceContainer.scrollIntoView({behavior:"smooth"}));
 
 })();
+
+(() => {
+  if (window.innerWidth > 768) return;
+
+  /* ===============================
+     VIRTUAL PAGES (FINAL FLOW)
+  =============================== */
+  const pages = [
+    document.querySelector('.min-h-screen'), // Header
+
+    document.querySelector('.py-8.bg-background-light'), // Best Seller
+
+    // Menu Juice + Non Juice
+    (() => {
+      const wrap = document.createElement('div');
+      wrap.className = 'nima-page';
+      document.querySelector('#menu-juice').parentElement.before(wrap);
+      wrap.append(
+        document.querySelector('#menu-juice').parentElement,
+        document.querySelector('#menu-nonjuice').parentElement
+      );
+      return wrap;
+    })(),
+
+    document.querySelector('.m-4.p-6.bg-primary'), // QR
+
+    // Alamat + Social Media (FINAL PAGE)
+    (() => {
+      const wrap = document.createElement('div');
+      wrap.className = 'nima-page nima-last';
+      document.querySelector('.px-4.py-8').before(wrap);
+      wrap.append(
+        document.querySelector('.px-4.py-8'),
+        document.querySelector('footer')
+      );
+      return wrap;
+    })()
+  ].filter(Boolean);
+
+  let index = 0;
+  let startY = 0;
+  let locked = false;
+
+  /* ===============================
+     LOCK SCROLL
+  =============================== */
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+
+  /* ===============================
+     STYLE
+  =============================== */
+  const style = document.createElement('style');
+  style.innerHTML = `
+    .nima-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .nima-anim {
+      transition:
+        filter .35s ease,
+        transform .35s ease,
+        opacity .35s ease;
+      will-change: filter, transform, opacity;
+    }
+
+    .nima-out {
+      filter: blur(16px);
+      transform: scale(.95);
+      opacity: .35;
+    }
+
+    @keyframes nimaHint {
+      0% { transform: translate(-50%,0); opacity:.4 }
+      50% { transform: translate(-50%,-10px); opacity:1 }
+      100% { transform: translate(-50%,0); opacity:.4 }
+    }
+  `;
+  document.head.appendChild(style);
+
+  pages.forEach(p => p.classList.add('nima-anim'));
+
+  /* ===============================
+     SWIPE HINT
+  =============================== */
+  const hint = document.createElement('div');
+  Object.assign(hint.style, {
+    position: 'fixed',
+    bottom: '26px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    fontSize: '12px',
+    letterSpacing: '0.35em',
+    textTransform: 'uppercase',
+    fontWeight: '600',
+    color: '#fff',
+    opacity: '.7',
+    zIndex: '9999',
+    pointerEvents: 'none',
+    animation: 'nimaHint 1.4s infinite'
+  });
+  document.body.appendChild(hint);
+
+  /* ===============================
+     HAPTIC
+  =============================== */
+  const haptic = (ms = 20) => {
+    navigator.vibrate && navigator.vibrate(ms);
+  };
+
+  /* ===============================
+     UPDATE HINT
+  =============================== */
+  function updateHint() {
+    if (index === pages.length - 1) {
+      hint.innerText = 'End';
+    } else if (index === 0) {
+      hint.innerText = 'Swipe up';
+    } else {
+      hint.innerText = 'Swipe up / down';
+    }
+  }
+
+  updateHint();
+
+  /* ===============================
+     NAVIGATION
+  =============================== */
+  function goTo(next) {
+    // STOP swipe UP di last page
+    if (index === pages.length - 1 && next > index) {
+      haptic(10);
+      return;
+    }
+
+    if (locked) return;
+    locked = true;
+
+    const prev = pages[index];
+    index = Math.max(0, Math.min(next, pages.length - 1));
+    const current = pages[index];
+
+    prev.classList.add('nima-out');
+    haptic(18);
+
+    setTimeout(() => {
+      current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      pages.forEach(p => p.classList.remove('nima-out'));
+      updateHint();
+
+      if (index === pages.length - 1) haptic(30);
+
+      setTimeout(() => (locked = false), 650);
+    }, 180);
+  }
+
+  /* ===============================
+     TOUCH HANDLER
+  =============================== */
+  window.addEventListener(
+    'touchstart',
+    e => (startY = e.touches[0].clientY),
+    { passive: true }
+  );
+
+  window.addEventListener(
+    'touchend',
+    e => {
+      const diff = startY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) < 60) return;
+
+      diff > 0 ? goTo(index + 1) : goTo(index - 1);
+    },
+    { passive: true }
+  );
+
+  /* ===============================
+     BLOCK WHEEL
+  =============================== */
+  window.addEventListener(
+    'wheel',
+    e => e.preventDefault(),
+    { passive: false }
+  );
+})();

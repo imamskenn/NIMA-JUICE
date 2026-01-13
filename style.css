@@ -1,14 +1,19 @@
+/* Base and utilities you provided */
 body { font-family: 'Plus Jakarta Sans', sans-serif; }
 .parallax-bg { background-attachment: fixed; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 .particle { position: absolute; pointer-events: none; opacity: 0.15; z-index: 0; }
 
-/* Hero background */
+/* Hero background (your gradient + image) */
 .hero-bg {
-  background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgb(255, 240, 197) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
+  background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgb(255, 240, 197) 100%),
+                    url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
+  background-size: cover;
+  background-position: center;
 }
 
+/* Carousel cards (your transitions, enhanced) */
 .carousel-card {
   position: absolute;
   inset: 0;
@@ -16,43 +21,50 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   opacity: 0;
   transform: scale(0.96);
   filter: blur(6px);
-  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease, filter 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(28,27,13,0.08);
 }
-
 .carousel-card.active {
   opacity: 1;
   transform: scale(1);
   filter: blur(0);
   z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
 }
-/* Blur ke body saat popup aktif */
-.blurred-bg {
+
+/* Blur body saat popup aktif */
+.main-content.blurred {
   transition: filter 0.3s ease;
   filter: blur(4px);
 }
 
-/* Animasi scale & opacity untuk popup card */
+/* Popup scale + opacity */
 #menu-popup > div {
   transform: scale(0.9);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  pointer-events: auto;
 }
-
 #menu-popup.show > div {
   transform: scale(1);
   opacity: 1;
 }
 
+/* Menu item hover */
 #menu-juice div, #menu-nonjuice div {
-  transition: transform 0.2s, background-color 0.2s;
+  transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid rgba(28,27,13,0.06);
 }
-
 #menu-juice div:hover, #menu-nonjuice div:hover {
-  transform: scale(1.03);      /* sedikit membesar */
-  background-color: rgba(255,255,255,0.9); /* highlight ringan */
-  cursor: pointer;             /* ganti kursor jadi pointer */
+  transform: translateY(-2px);
+  background-color: rgba(255,255,255,0.92);
+  cursor: pointer;
+  box-shadow: 0 18px 36px rgba(0,0,0,0.10);
 }
 
+/* Popup container */
 #menu-popup {
   position: fixed;
   inset: 0;
@@ -60,21 +72,99 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   align-items: center;
   justify-content: center;
   z-index: 50;
-  background: transparent; /* biar area luar bisa diklik */
+  background: transparent;
+  pointer-events: none;
 }
 
+#menu-popup img {
+  border-radius: 1rem;         /* sudut membulat */
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  background: #f8f8f5;
+  padding: 0.5rem;
+}
+#menu-popup input[type="number"] {
+  height: 2.5rem;
+  border-radius: 9999px;       /* full rounded */
+  border: 1px solid rgba(28,27,13,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
+#menu-popup button {
+  height: 2.5rem;
+  border-radius: 9999px;       /* sama bulatnya */
+  padding: 0 1rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
 
 /* Minimal body height fix */
 body { min-height: max(884px, 100dvh); }
 
 .cursor-pointer { cursor: pointer; }
 
-.navbar.shrink {
-  padding: 0.5rem 1rem; /* lebih kecil */
-}
-.navbar.shrink h2 {
-  font-size: 0.9rem; /* teks mengecil */
+/* Navbar transitions */
+.navbar { 
+  transition: all 0.3s ease;
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(28,27,13,0.08);
+  will-change: height, border-radius, background-color;
 }
 
-.navbar { transition: all 0.3s ease; }
+/* Shrink (for class toggle if needed) */
+.navbar.shrink { padding: 0.5rem 1rem; }
+.navbar.shrink h2 { font-size: 0.9rem; }
+
+/* Navbar title animation */
+.navbar h2 {
+  transition: color 200ms ease, transform 200ms ease, letter-spacing 200ms ease;
+}
+
+/* iOS micro-interactions */
+.btn-primary-ios, .btn-ghost-ios {
+  transition: transform 120ms ease, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease;
+}
+.btn-primary-ios:active, .btn-ghost-ios:active { transform: scale(0.98); }
+.btn-ghost-ios:hover { box-shadow: 0 8px 20px rgba(244,226,37,0.25); }
+
+/* Info area */
+.info-card-ios {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(28,27,13,0.08);
+}
+.qr-card-ios {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  border: 1px solid rgba(28,27,13,0.10);
+}
+.chip-ios {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Map subtle depth */
+.map-ios {
+  box-shadow: inset 0 12px 24px rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(28,27,13,0.08);
+  border-radius: 0.75rem;
+}
+
+/* Footer icons */
+.icon-ios {
+  transition: transform 120ms ease, box-shadow 200ms ease;
+}
+.icon-ios:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+}
+
+/* Particles gentle float */
+.particle {
+  animation: float 6s ease-in-out infinite;
+  opacity: 0.85;
+}
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

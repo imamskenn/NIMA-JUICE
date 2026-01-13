@@ -1,198 +1,195 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>NIMA JUICE - Honest Juice, Real Flavor</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>NIMA JUICE - Honest Juice, Real Flavor</title>
 
-<!-- Tailwind & Fonts -->
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <!-- Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="style.css"/>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css"/>
 
-<!-- Tailwind Config -->
-<script id="tailwind-config">
-tailwind.config = {
-    darkMode: "class",
-    theme: {
-        extend: {
-            colors: {
-                "primary": "#f4e225",
-                "background-light": "#fcfbf8",
-                "background-dark": "#222110",
-            },
-            fontFamily: {
-                "display": ["Plus Jakarta Sans", "sans-serif"]
-            },
-            borderRadius: {
-                "DEFAULT": "1rem",
-                "lg": "2rem",
-                "xl": "3rem",
-                "full": "9999px"
-            },
-        },
-    },
-}
-</script>
+  <!-- Tailwind Config -->
+  <script id="tailwind-config">
+  tailwind.config = {
+      darkMode: "class",
+      theme: {
+          extend: {
+              colors: {
+                  "primary": "#f4e225",
+                  "background-light": "#fcfbf8",
+                  "background-dark": "#222110",
+              },
+              fontFamily: {
+                  "display": ["Plus Jakarta Sans", "sans-serif"]
+              },
+              borderRadius: {
+                  "DEFAULT": "1rem",
+                  "lg": "2rem",
+                  "xl": "3rem",
+                  "full": "9999px"
+              },
+          },
+      },
+  }
+  </script>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-[#1c1b0d] font-display overflow-x-hidden">
+<body>
 
-<!-- Top Navigation Bar -->
-<div class="navbar fixed top-0 left-0 right-0 z-50 flex items-center
-             bg-primary dark:bg-primary p-6 
-             justify-between border-b border-primary/10 transition-all duration-300"></div>
-  <h2 class="text-[#1c1b0d] dark:text-white text-xl font-bold flex-1 text-center">NIMA JUICE</h2>
-</div>
+<div class="main-content">
 
-
-<!-- Hero Section -->
-<div class="relative min-h-screen flex flex-col pt-16">
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <span class="material-symbols-outlined particle text-6xl top-20 left-10 text-orange-400">nutrition</span>
-    <span class="material-symbols-outlined particle text-4xl top-40 right-20 text-yellow-500">eco</span>
-    <span class="material-symbols-outlined particle text-5xl bottom-1/4 left-1/3 text-primary">water_drop</span>
-    <span class="material-symbols-outlined particle text-3xl top-1/2 right-10 text-orange-300">circle</span>
+  <!-- Top Navigation Bar -->
+  <div class="navbar fixed top-0 left-0 right-0 z-50 flex items-center
+              bg-primary/80 dark:bg-primary/80 p-6
+              justify-between border-b border-primary/10 transition-all duration-300">
+    <h2 class="text-[#000000] dark:text-white text-xl font-bold flex-1 text-center">
+      NIMA JUICE
+    </h2>
   </div>
 
-  <div class="@container flex-1 flex flex-col justify-center">
-    <div class="@container p-6 flex flex-col min-h-[600px] gap-8 items-center justify-center text-center hero-bg">
-      <div class="flex flex-col gap-3">
-        <h1 class="text-[#1c1b0d] dark:text-white text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl uppercase">
-          NIMA <span class="text-primary bg-[#1c1b0d] px-2 rounded-lg">JUICE</span>
-        </h1>
-        <h2 class="text-[#1c1b0d]/70 dark:text-white/70 text-base font-medium leading-normal max-w-[280px] mx-auto">
-          Honest Juice, Real Flavor
-        </h2>
-      </div>
+  <!-- Hero Section -->
+  <div class="relative min-h-screen flex flex-col pt-16">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <span class="material-symbols-outlined particle text-6xl top-20 left-10 text-orange-400">nutrition</span>
+      <span class="material-symbols-outlined particle text-4xl top-40 right-20 text-yellow-500">eco</span>
+      <span class="material-symbols-outlined particle text-5xl bottom-1/4 left-1/3 text-primary">water_drop</span>
+      <span class="material-symbols-outlined particle text-3xl top-1/2 right-10 text-orange-300">circle</span>
+    </div>
 
-      <div class="flex gap-3 mt-6">
-        <button id="lihat-menu" class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-[#1c1b0d] text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
-          Click Me
-        </button>
-        <button id="order-wa" class="flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-background-dark border-2 border-primary text-[#1c1b0d] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
-          Order WA
-        </button>
+    <div class="@container flex-1 flex flex-col justify-center">
+      <div class="@container p-6 flex flex-col min-h-[600px] gap-8 items-center justify-center text-center hero-bg">
+        <div class="flex flex-col gap-3">
+          <h1 class="text-[#1c1b0d] dark:text-white text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-6xl uppercase">
+            NIMA <span class="text-primary bg-[#1c1b0d] px-2 rounded-lg">JUICE</span>
+          </h1>
+          <h2 class="text-[#1c1b0d]/70 dark:text-white/70 text-base font-medium leading-normal max-w-[280px] mx-auto">
+            Honest Juice, Real Flavor
+          </h2>
+        </div>
+
+        <div class="flex gap-3 mt-6">
+          <button id="lihat-menu" class="btn-primary-ios flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-[#1c1b0d] text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30">
+            Click Me
+          </button>
+          <button id="order-wa" class="btn-ghost-ios flex min-w-[140px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-white dark:bg-background-dark border-2 border-primary text-[#1c1b0d] dark:text-white text-base font-bold leading-normal tracking-[0.015em]">
+            Order WA
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Best Seller Section -->
+  <div class="py-8 bg-background-light dark:bg-background-dark relative z-10">
+    <div class="relative px-4 pb-4 flex items-center justify-end">
+      <h2 class="absolute left-1/2 -translate-x-1/2 text-[#1c1b0d] dark:text-white text-[24px] font-bold leading-tight justify-center text-center tracking-[-0.015em]">🔥 Best Seller</h2>
+    </div>
+    
+    <div class="relative w-full min-h-[70vh] overflow-hidden">
+      <div id="best-seller-cards" class="relative w-full h-full">
+        <!-- card on script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu Juice Section -->
+  <div class="px-4 py-6">
+    <h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Juice (10 Varian)</h3>
+    <div class="grid grid-cols-1 gap-4" id="menu-juice">
+      <!-- Juice items on script.js -->
+    </div>
+  </div>
+
+  <!-- Menu Non-Juice Section -->
+  <div class="px-4 py-6">
+    <h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Non-Juice (4 Varian)</h3>
+    <div class="grid grid-cols-2 gap-4" id="menu-nonjuice">
+      <!-- Non-Juice items on script.js -->
+    </div>
+  </div>
+
+  <!-- Information  -->
+  <div class="m-4 p-6 bg-primary rounded-xl flex flex-col items-center gap-6 text-[#1c1b0d] info-card-ios">
+    <div class="text-center">
+      <h4 class="text-xl font-black mb-1">Scan to Order</h4>
+      <p class="text-xs font-medium opacity-80 italic">Bayar jadi mudah lewat QRIS</p>
+    </div>
+    <div class="bg-white p-4 rounded-xl shadow-xl qr-card-ios">
+      <div class="size-40 bg-[#f8f8f5] flex items-center justify-center border-2 border-[#1c1b0d]/10 rounded-lg">
+        <img src="https://imamskenn.github.io/NIMA-JUICE/qr.png" alt="NIMA JUICE FOOD & DRINK" class="w-40 h-40 object-contain"> 
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-4 w-full">
+      <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full chip-ios">
+        <span class="material-symbols-outlined">schedule</span>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wider">Jam Operasional</p>
+          <p class="text-sm font-medium">Buka Setiap Hari: 10:00 WIB - 20:00 WIB</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full chip-ios">
+        <span class="material-symbols-outlined">info</span>
+        <p class="text-sm font-bold uppercase tracking-wide">Kadang Tutup Dadakan</p>
       </div>
     </div>
   </div>
-</div>
 
-<!-- Best Seller Section -->
-<div class="py-8 bg-background-light dark:bg-background-dark relative z-10">
-  <div class="relative px-4 pb-4 flex items-center justify-end">
-    <h2 class="absolute left-1/2 -translate-x-1/2 text-[#1c1b0d] dark:text-white text-[24px] font-bold leading-tight justify-center text-center tracking-[-0.015em]">🔥 Best Seller</h2>
-  </div>
-  
- <div class="relative w-full min-h-[70vh] overflow-hidden">
-  <div id="best-seller-cards" class="relative w-full h-full">
-    <!-- card on script.js -->
-  </div>
-</div>
-</div>
+  <!-- Location Section -->
+  <div class="px-4 py-8">
+    <h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold mb-4">📍 Lokasi Kami</h3>
 
-<!-- Menu Juice Section -->
-<div class="px-4 py-6">
-<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Juice (10 Varian)</h3>
-<div class="grid grid-cols-1 gap-4" id="menu-juice">
-  <!-- Juice items on script.js -->
-</div>
-</div>
-
-<!-- Menu Non-Juice Section -->
-<div class="px-4 py-6">
-<h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold leading-tight tracking-[-0.015em] mb-4 border-l-4 border-primary pl-3">Menu Non-Juice (4 Varian)</h3>
-<div class="grid grid-cols-2 gap-4" id="menu-nonjuice">
-  <!-- Non-Juice items on script.js -->
-</div>
-</div>
-
-<!-- Information  -->
-<div class="m-4 p-6 bg-primary rounded-xl flex flex-col items-center gap-6 text-[#1c1b0d]">
-  <div class="text-center">
-    <h4 class="text-xl font-black mb-1">Scan to Order</h4>
-    <p class="text-xs font-medium opacity-80 italic">Bayar jadi mudah lewat QRIS</p>
-  </div>
-  <div class="bg-white p-4 rounded-xl shadow-xl">
-  <div class="size-40 bg-[#f8f8f5] flex items-center justify-center border-2 border-[#1c1b0d]/10 rounded-lg">
-    <img src="https://imamskenn.github.io/NIMA-JUICE/qr.png" alt="NIMA JUICE FOOD & DRINK" class="w-40 h-40 object-contain"> 
-</div>
-
-</div>
-
-  <div class="flex flex-col gap-4 w-full">
-    <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
-      <span class="material-symbols-outlined">schedule</span>
-      <div>
-        <p class="text-xs font-bold uppercase tracking-wider">Jam Operasional</p>
-        <p class="text-sm font-medium">Buka Setiap Hari: 10:00 WIB - 20:00 WIB</p>
-      </div>
+    <div class="w-full h-60 rounded-xl overflow-hidden shadow-inner map-ios">
+      <iframe
+        class="w-full h-full rounded-xl"
+        src="https://www.google.com/maps?q=Jl.+Sanding+RT/RW+01/013,+Paseh,+Kab.Bandung,+Jawa+Barat&output=embed"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
-    <div class="flex items-center gap-4 bg-white/20 p-4 rounded-full">
-      <span class="material-symbols-outlined">info</span>
-      <p class="text-sm font-bold uppercase tracking-wide">Kadang Tutup Dadakan</p>
+
+    <p class="mt-3 text-sm text-[#9c9549] dark:text-[#9c9549] font-medium cursor-pointer" id="alamat">
+      Jl. Sanding RT/RW 01/013, Paseh, Kab.Bandung, Jawa Barat.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#1c1b0d] text-white p-8 rounded-t-xl text-center flex flex-col items-center gap-6 footer-ios">
+    <h2 class="text-2xl font-black mb-2">NIMA <span class="text-primary">JUICE</span></h2>
+    <p class="text-sm text-gray-400 mb-8 max-w-[240px] mx-auto italic">
+      "Kesegaran yang membahagiakan harimu, satu gelas pada satu waktu."
+    </p>
+
+    <!-- Social Media -->
+    <div class="flex justify-center gap-6 mb-2">
+      <a class="size-12 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg icon-ios" 
+         href="https://wa.me/6283829560114" target="_blank">
+        <img src="https://www.svgrepo.com/show/303147/whatsapp-icon-logo.svg" class="w-6 h-6" alt="WhatsApp">
+      </a>
+      <a class="size-12 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 flex items-center justify-center text-white shadow-lg icon-ios" 
+         href="https://instagram.com/nima.juice" target="_blank">
+        <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" class="w-6 h-6" alt="Instagram">
+      </a>
+      <a class="size-12 rounded-full bg-black flex items-center justify-center text-white shadow-lg icon-ios" 
+         href="https://www.tiktok.com/@nima.juice" target="_blank">
+        <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" class="w-6 h-6" alt="TikTok">
+      </a>
+      <a class="size-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg icon-ios" 
+         href="https://facebook.com/nimajuice" target="_blank">
+        <img src="https://www.svgrepo.com/show/303113/facebook-icon-logo.svg" class="w-6 h-6" alt="Facebook">
+      </a>
     </div>
-  </div>
+
+    <div class="h-px bg-white/10 w-full mb-2"></div>
+    <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 NIMA JUICE</p>
+  </footer>
 </div>
-
-<!-- Location Section -->
-<div class="px-4 py-8">
-  <h3 class="text-[#1c1b0d] dark:text-white text-xl font-bold mb-4">📍 Lokasi Kami</h3>
-
-  <div class="w-full h-60 rounded-xl overflow-hidden shadow-inner">
-    <iframe
-      class="w-full h-full rounded-xl"
-      src="https://www.google.com/maps?q=Jl.+Sanding+RT/RW+01/013,+Paseh,+Kab.Bandung,+Jawa+Barat&output=embed"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-
-  <p class="mt-3 text-sm text-[#9c9549] dark:text-[#9c9549] font-medium cursor-pointer" id="alamat">
-    Jl. Sanding RT/RW 01/013, Paseh, Kab.Bandung, Jawa Barat.
-  </p>
-</div>
-
-
-<!-- Footer -->
-<footer class="bg-[#1c1b0d] text-white p-8 rounded-t-xl text-center flex flex-col items-center gap-6">
-  <h2 class="text-2xl font-black mb-2">NIMA <span class="text-primary">JUICE</span></h2>
-  <p class="text-sm text-gray-400 mb-8 max-w-[240px] mx-auto italic">
-    "Kesegaran yang membahagiakan harimu, satu gelas pada satu waktu."
-  </p>
-
-  <!-- Social Media -->
-  <div class="flex justify-center gap-6 mb-2">
-    <!-- WhatsApp -->
-    <a class="size-12 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg" 
-       href="https://wa.me/6283829560114" target="_blank">
-      <img src="https://www.svgrepo.com/show/303147/whatsapp-icon-logo.svg" class="w-6 h-6" alt="WhatsApp">
-    </a>
-    <!-- Instagram -->
-    <a class="size-12 rounded-full bg-gradient-to-tr from-yellow-500 to-purple-600 flex items-center justify-center text-white shadow-lg" 
-       href="https://instagram.com/nima.juice" target="_blank">
-      <img src="https://www.svgrepo.com/show/303145/instagram-2-1-logo.svg" class="w-6 h-6" alt="Instagram">
-    </a>
-    <!-- TikTok -->
-    <a class="size-12 rounded-full bg-black flex items-center justify-center text-white shadow-lg" 
-       href="https://www.tiktok.com/@nima.juice" target="_blank">
-      <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" class="w-6 h-6" alt="TikTok">
-    </a>
-    <!-- Facebook -->
-    <a class="size-12 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-lg" 
-       href="https://facebook.com/nimajuice" target="_blank">
-      <img src="https://www.svgrepo.com/show/303113/facebook-icon-logo.svg" class="w-6 h-6" alt="Facebook">
-    </a>
-  </div>
-
-  <!-- Copyright on bottom page -->
-  <div class="h-px bg-white/10 w-full mb-2"></div>
-  <p class="text-[10px] text-gray-500 uppercase tracking-[0.2em]">© 2026 NIMA JUICE</p>
-</footer>
-<!-- Custom Javascript -->
-<script src="script.js"></script>
+  <!-- Custom Javascript -->
+  <script src="script.js"></script>
 </body>
 </html>

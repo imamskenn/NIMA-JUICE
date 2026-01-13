@@ -6,7 +6,7 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 /* Hero background */
 .hero-bg {
-  background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgba(252, 251, 248, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
+  background-image: linear-gradient(rgba(244, 226, 37, 0.2) 0%, rgb(255, 240, 197) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbEDuwbE3Pcy5JDclR2cMtv9__hN4tHawEgiJzFEmGfPm5XORiQZ4PNvY8aznW4TCsAyHAQ2-b7zegc_93hHrDQPVxjhtp-CnmKHlrJ7FD2i4jozmEko9rd25nNWLtUIuqiuEUFs7Zgpn9sdexStRez4QOD7J5T1VxO40VgC_I4G57jVGS34jQHlmv4mKJcTsNy-O3057knAlvUQpbbcN7Uo_yFqw4vZzBznA-YCrulfNC71hWl1Jaop5DjrO95X4Q0xlmEFExRDXT");
 }
 
 .carousel-card {
@@ -35,7 +35,9 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
 #menu-popup > div {
   transform: scale(0.9);
   opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
 #menu-popup.show > div {
   transform: scale(1);
   opacity: 1;
@@ -51,6 +53,15 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
   cursor: pointer;             /* ganti kursor jadi pointer */
 }
 
+#menu-popup {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background: transparent; /* biar area luar bisa diklik */
+}
 
 
 
@@ -58,3 +69,12 @@ body { font-family: 'Plus Jakarta Sans', sans-serif; }
 body { min-height: max(884px, 100dvh); }
 
 .cursor-pointer { cursor: pointer; }
+
+.navbar.shrink {
+  padding: 0.5rem 1rem; /* lebih kecil */
+}
+.navbar.shrink h2 {
+  font-size: 0.9rem; /* teks mengecil */
+}
+
+.navbar { transition: all 0.3s ease; }
